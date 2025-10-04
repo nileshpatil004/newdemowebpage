@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <tita>Aroma Café</title>
+    <meta name="description" content="A warm and cozy café website with menu, gallery, and reservations." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+    <style>
+      :root {
+        --cream: #F7F2E7;
+        /* cream */
+        --brown: #6B4F3B;
+        /* coffee brown */
+        --brown-dark: #4a372a;
+      }
+
+      html {
+        scroll-behavior: smooth
+      }
+
+      body {
+        font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+
+      /* Simple utility for container width */
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding-right: 1rem
+      }
+
+      /* Hide scrollbar for gallery snap */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none
+      }
+
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none
+      }
+    </style>
+</head>
+
+<body class="bg-[var(--cream)] text-stone-800">
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-40 bg-[var(--cream)]/90 backdrop-blur border-b border-stone-200">
+    <div class="wrap flex items-center justify-between h-16">
+      <a href="#home" class="font-bold tracking-wide text-xl text-[var(--brown)]">Aroma Café</a>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-stone-300" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav id="nav" class="hidden md:flex items-center gap-6">
+        <a href="#home" class="hover:text-[var(--brown)]">Home</a>
+        <a href="#about" class="hover:text-[var(--brown)]">About</a>
+        <a href="#menu" class="hover:text-[var(--brown)]">Menu</a>
+        <a href="#gallery" class="hover:text-[var(--brown)]">Gallery</a>
+        <a href="#contact" class="hover:text-[var(--brown)]">Contact</a>
+        <a href="#reserve"
+          class="ml-2 px-4 py-2 rounded-2xl bg-[var(--brown)] text-white hover:bg-[var(--brown-dark)] transition">Book a
+          Table</a>
+      </nav>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-stone-200">
+      <div class="wrap py-3 flex flex-col gap-3">
+        <a href="#home" class="hover:text-[var(--brown)]">Home</a>
+        <a href="#about" class="hover:text-[var(--brown)]">About</a>
+        <a href="#menu" class="hover:text-[var(--brown)]">Menu</a>
+        <a href="#gallery" class="hover:text-[var(--brown)]">Gallery</a>
+        <a href="#contact" class="hover:text-[var(--brown)]">Contact</a>
+        <a href="#reserve" class="px-4 py-2 rounded-2xl bg-[var(--brown)] text-white w-max">Book a Table</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Home -->
+  <section id="home" class="relative">
+    <div class="wrap grid md:grid-cols-2 gap-8 items-center py-14 md:py-20">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight text-[var(--brown)]">Warm & Cozy Café</h1>
+        <p class="mt-4 text-lg text-stone-700">Sip, relax, and savor. Discover our hand-crafted coffee, fresh bakes, and
+          a space that feels like home.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#menu"
+            class="px-5 py-3 rounded-2xl bg-[var(--brown)] text-white hover:bg-[var(--brown-dark)] transition">View
+            Menu</a>
+          <a href="#reserve"
+            class="px-5 py-3 rounded-2xl border border-[var(--brown)] text-[var(--brown)] hover:bg-[var(--brown)] hover:text-white transition">Reserve</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-sm text-stone-600">
+          <div class="flex -space-x-2">
+            <img class="w-8 h-8 rounded-full border border-white"
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200" alt="Customer" />
+            <img class="w-8 h-8 rounded-full border border-white"
+              src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=200" alt="Customer" />
+            <img class="w-8 h-8 rounded-full border border-white"
+              src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=200" alt="Customer" />
+          </div>
+          <span><strong class="text-stone-800">1,500+ happy customers</strong> this year</span>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200" alt="Café Coffee"
+          class="w-full h-72 md:h-[420px] object-cover rounded-3xl shadow-lg" />
+        <div class="absolute -bottom-6 -left-6 bg-white/80 backdrop-blur rounded-2xl shadow p-4">
+          <p class="text-sm">Open today: <strong>8:00 AM – 10:00 PM</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 md:py-24 bg-white">
+    <div class="wrap grid md:grid-cols-2 gap-10 items-center">
+      <img src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?q=80&w=1200" alt="Cozy interior"
+        class="rounded-3xl shadow-lg object-cover w-full h-72 md:h-96">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brown)]">About Us</h2>
+        <p class="mt-4 text-stone-700">Founded with love for specialty beans and homemade pastries, Aroma Café blends
+          warm ambiance with quality ingredients. We partner with local roasters and bakers to bring you the freshest
+          flavors daily.</p>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-stone-700">
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[var(--brown)]"></span>Ethically
+            sourced coffee</li>
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[var(--brown)]"></span>Freshly
+            baked daily</li>
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[var(--brown)]"></span>Free Wi‑Fi
+            & cozy seating</li>
+          <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[var(--brown)]"></span>Vegan &
+            gluten‑free options</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="py-16 md:py-24">
+    <div class="wrap">
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--brown)]">Our Menu</h2>
+      <p class="mt-2 text-stone-700">Browse by category: Coffee, Tea, Snacks, Desserts.</p>
+
+      <!-- Category Tabs -->
+      <div class="mt-6 flex flex-wrap gap-2">
+        <button data-cat="coffee"
+          class="cat-btn px-4 py-2 rounded-2xl border border-[var(--brown)] text-[var(--brown)]">Coffee</button>
+        <button data-cat="tea"
+          class="cat-btn px-4 py-2 rounded-2xl border border-[var(--brown)] text-[var(--brown)]">Tea</button>
+        <button data-cat="snacks"
+          class="cat-btn px-4 py-2 rounded-2xl border border-[var(--brown)] text-[var(--brown)]">Snacks</button>
+        <button data-cat="desserts"
+          class="cat-btn px-4 py-2 rounded-2xl border border-[var(--brown)] text-[var(--brown)]">Desserts</button>
+        <button data-cat="all" class="cat-btn px-4 py-2 rounded-2xl bg-[var(--brown)] text-white">All</button>
+      </div>
+
+      <!-- Items Grid -->
+      <div id="menuGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Coffee -->
+        <article class="menu-item coffee bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Espresso</h3><span class="text-[var(--brown)] font-bold">₹120</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Rich, bold single shot.</p>
+        </article>
+        <article class="menu-item coffee bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Cappuccino</h3><span class="text-[var(--brown)] font-bold">₹180</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Velvety foam, balanced taste.</p>
+        </article>
+        <article class="menu-item coffee bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Cold Brew</h3><span class="text-[var(--brown)] font-bold">₹220</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Slow-brewed, smooth & refreshing.</p>
+        </article>
+
+        <!-- Tea -->
+        <article class="menu-item tea bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Masala Chai</h3><span class="text-[var(--brown)] font-bold">₹120</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Spiced Indian tea.</p>
+        </article>
+        <article class="menu-item tea bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Green Tea</h3><span class="text-[var(--brown)] font-bold">₹150</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Light & calming.</p>
+        </article>
+
+        <!-- Snacks -->
+        <article class="menu-item snacks bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Paneer Sandwich</h3><span class="text-[var(--brown)] font-bold">₹220</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Grilled with herbs & cheese.</p>
+        </article>
+        <article class="menu-item snacks bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Veg Puff</h3><span class="text-[var(--brown)] font-bold">₹90</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Flaky pastry, spiced filling.</p>
+        </article>
+
+        <!-- Desserts -->
+        <article class="menu-item desserts bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Chocolate Brownie</h3><span class="text-[var(--brown)] font-bold">₹160</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Gooey, served warm.</p>
+        </article>
+        <article class="menu-item desserts bg-white rounded-2xl p-5 shadow">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Cheesecake</h3><span class="text-[var(--brown)] font-bold">₹240</span>
+          </div>
+          <p class="text-sm text-stone-600 mt-1">Classic, creamy delight.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-16 md:py-24 bg-white">
+    <div class="wrap">
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--brown)]">Gallery</h2>
+      <p class="mt-2 text-stone-700">A peek into our space & flavors.</p>
+      <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img class="w-full h-40 md:h-56 object-cover rounded-2xl shadow"
+          src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800" alt="Latte art" />
+        <img class="w-full h-40 md:h-56 object-cover rounded-2xl shadow"
+          src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800" alt="Pastry" />
+        <img class="w-full h-40 md:h-56 object-cover rounded-2xl shadow"
+          src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=800" alt="Cozy corner" />
+        <img class="w-full h-40 md:h-56 object-cover rounded-2xl shadow"
+          src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=800" alt="Dessert" />
+        <img class="w-full h-40 md:h-56 object-cover rounded-2xl shadow"
+          src="https://images.unsplash.com/photo-1493770348161-369560ae357d?q=80&w=800" alt="Snack" />
+        <img class="w-full h-40 md:h-56 object-cover rounded-2xl shadow"
+          src="https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=800" alt="Cafe interior" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section id="contact" class="py-16 md:py-24">
+    <div class="wrap grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brown)]">Contact</h2>
+        <p class="mt-2 text-stone-700">Come say hi!</p>
+        <div class="mt-6 bg-white rounded-2xl shadow overflow-hidden">
+          <iframe title="Google Map" src="https://www.google.com/maps?q=Your+Cafe+Name&output=embed"
+            class="w-full h-72"></iframe>
+        </div>
+        <div class="mt-6 grid sm:grid-cols-3 gap-4">
+          <div class="bg-white rounded-2xl p-4 shadow">
+            <p class="text-sm text-stone-500">Phone</p>
+            <p class="font-semibold">+91 98765 43210</p>
+          </div>
+          <div class="bg-white rounded-2xl p-4 shadow">
+            <p class="text-sm text-stone-500">Email</p>
+            <p class="font-semibold">hello@cozycafe.com</p>
+          </div>
+          <div class="bg-white rounded-2xl p-4 shadow">
+            <p class="text-sm text-stone-500">Address</p>
+            <p class="font-semibold">123 Brew St, Your City</p>
+          </div>
+        </div>
+        <div class="mt-6 bg-white rounded-2xl p-5 shadow">
+          <h3 class="font-semibold text-lg">Opening Hours</h3>
+          <ul class="mt-3 space-y-1 text-stone-700">
+            <li>Mon–Fri: 8:00 AM – 10:00 PM</li>
+            <li>Sat: 9:00 AM – 11:00 PM</li>
+            <li>Sun: 9:00 AM – 9:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Reservation Form -->
+      <div id="reserve" class="bg-white rounded-3xl p-6 shadow-lg border border-stone-100">
+        <h2 class="text-2xl font-bold text-[var(--brown)]">Online Booking</h2>
+        <p class="text-stone-700 mt-1">Reserve your table in seconds.</p>
+        <form id="bookingForm" class="mt-6 grid gap-4">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-stone-600" for="name">Full Name</label>
+              <input id="name" name="name" required type="text"
+                class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]"
+                placeholder="Your name" />
+            </div>
+            <div>
+              <label class="text-sm text-stone-600" for="phone">Phone</label>
+              <input id="phone" name="phone" required type="tel"
+                class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]"
+                placeholder="+91" />
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-stone-600" for="email">Email</label>
+              <input id="email" name="email" type="email"
+                class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]"
+                placeholder="you@example.com" />
+            </div>
+            <div>
+              <label class="text-sm text-stone-600" for="guests">Guests</label>
+              <select id="guests" name="guests"
+                class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6+</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-stone-600" for="date">Date</label>
+              <input id="date" name="date" required type="date"
+                class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]" />
+            </div>
+            <div>
+              <label class="text-sm text-stone-600" for="time">Time</label>
+              <input id="time" name="time" required type="time"
+                class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]" />
+            </div>
+          </div>
+          <div>
+            <label class="text-sm text-stone-600" for="notes">Special Requests</label>
+            <textarea id="notes" name="notes" rows="3"
+              class="mt-1 w-full rounded-xl border border-stone-300 p-3 focus:outline-none focus:ring-2 focus:ring-[var(--brown)]"
+              placeholder="Allergies, seating preference, occasion..."></textarea>
+          </div>
+          <button
+            class="mt-2 px-6 py-3 rounded-2xl bg-[var(--brown)] text-white font-semibold hover:bg-[var(--brown-dark)]">Submit
+            Booking</button>
+          <p id="formMsg" class="hidden text-sm"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-stone-200">
+    <div class="wrap py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm">© <span id="year"></span> Aroma Café. All rights reserved.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="#about" class="hover:text-[var(--brown)]">About</a>
+        <a href="#menu" class="hover:text-[var(--brown)]">Menu</a>
+        <a href="#contact" class="hover:text-[var(--brown)]">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu category filter
+    const buttons = document.querySelectorAll('.cat-btn');
+    const items = document.querySelectorAll('.menu-item');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      const cat = btn.dataset.cat;
+      items.forEach(it => {
+        if (cat === 'all' || it.classList.contains(cat)) it.classList.remove('hidden');
+        else it.classList.add('hidden');
+      });
+      // Active state
+      buttons.forEach(b => b.classList.remove('bg-[var(--brown)]', 'text-white'));
+      btn.classList.add('bg-[var(--brown)]', 'text-white');
+    }));
+
+    // Simple booking form handler (demo)
+    const form = document.getElementById('bookingForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      // Basic validation
+      if (!data.name || !data.phone || !data.date || !data.time) {
+        msg.textContent = 'Please fill in the required fields.';
+        msg.className = 'text-red-600';
+        return;
+      }
+      msg.textContent = 'Thank you! Your reservation request has been received. We will confirm shortly.';
+      msg.className = 'text-green-700';
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>
